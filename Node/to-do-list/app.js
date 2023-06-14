@@ -1,16 +1,11 @@
 const express = require('express');
+const checkListRouter = require('./src/routes/checklist.js');
 
-//Todos os métodos do servidor disponível em app 
-const app = express(); 
+const app = express();
+app.use(express.json());
 
-//Metodo GET, rota: "/", resp: "res"
-app.get('/', (req, res) => {
-    res.send('<h1>Minha lista de tarefas</h1>')
-})
+app.use('/checklist', checkListRouter);
 
-app.get
-
-//Inicia, "ouvindo" a porta 3000
-app.listen(3000,()=>{
+app.listen(3000, () => {
     console.log('Server ON')
 })
